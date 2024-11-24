@@ -14,8 +14,7 @@ jobs:
       fail-fast: false
       matrix:
         arch:
-          - aarch64_cortex-a53
-          - x86_64
+          - arm_cortex-a7
 
     steps:
       - uses: actions/checkout@main
@@ -25,7 +24,7 @@ jobs:
       - name: Build
         uses: sbwml/openwrt-gh-action-sdk@go1.21
         env:
-          ARCH: ${{ matrix.arch }}-23.05-SNAPSHOT
+          ARCH: ${{ matrix.arch }}-21.02-SNAPSHOT
           FEEDNAME: packages_ci
           PACKAGES: luci-app-homeproxy
           NO_REFRESH_CHECK: true
